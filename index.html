@@ -131,9 +131,9 @@
           console.warn("Console Warn Button");
         }
         else if(button.id == "assert"){
-          let number = 2;
-          let errorMsg = "The number does not equal 3";
-          console.assert(number == 3, {number, errorMsg});
+          let number = 1;
+          let errorMsg = "The number does not equal 10";
+          console.assert(number == 10, {number, errorMsg});
         }
         else if(button.id == "clear"){
           console.clear();
@@ -168,10 +168,10 @@
           console.table(the_Table);
         }
         else if(button.id == "start_Timer"){
-          console.time("Time start");
+          console.time("Timer");
         }
         else if(button.id == "end_Timer"){
-          console.timeEnd("Time end");
+          console.timeEnd("Timer");
         }
         else if(button.id == "trace"){
           // trace into three layers
@@ -183,7 +183,7 @@
         else if(button.id = "global_Error"){
           alert(undefinedVariable);
         }
-        else if(button.id = "try_Catch"){
+        else if(button.id = "try"){
           try_Catch_Test();
         }
       });
@@ -209,24 +209,21 @@
       let iterationList = [correct, incorrect];
 
       for(let i = 0; i < iterationList.length; i++){
-
         let key_Name = "No Name Found";
         let content = "No Content Found";
         // start of try catch finally
         try{
           let object = JSON.parse(iterationList[i]);
-
+          // check if name and content stored can be accessed
           if(!object.key_Name){
             throw new error_Read("Key Name");
           }
           key_Name = object.key_Name;
-
           if(!object.content){
             throw new error_Read("Content inside");
           }
           content = object.content;
-
-          console.log("Successfully Parsed to show");
+          console.log("Successfully Parsed to show content");
         }
         catch(error){
           console.log(`Parsing Failed in ${error.name} because ${error.message}.`);
